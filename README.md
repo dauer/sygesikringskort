@@ -13,7 +13,7 @@ Der kræves en 2-spor læser som f.eks. denne fra [DanBit](http://www.danbit.dk/
 |Beskrivelse| antal tegn |
 |:----------|-----------:|
 |'%' tegn markerer start på data spor | 1 |
-|Sikredes navn (efternavn/fornavn)| 34 |
+|Sikredes navn (efternavn og fornavn adskilt af en '^')| 34 |
 |Sikredes adresse | 34 |
 |Sikredes bopælskommune [BBR](http://bbr.dk/kommunekode/0/30) | 3 |
 |Sikredes postnummer | 4 |
@@ -37,6 +37,10 @@ Der kræves en 2-spor læser som f.eks. denne fra [DanBit](http://www.danbit.dk/
 |'?' tegn markerer afslutning af spor | 1 |
 
 Sygesikringkortet indeholder ikke danske tegn og disse skal derfor oversættes ud fra disse [tabeller](https://en.wikipedia.org/wiki/National_Replacement_Character_Set)
+
+Her ses et eksempel på en streng som den kunne se ud:
+
+    %DOE^JOHN JOHNNY                   ]L\KKE ALLE 7 3                   4615000?;9208100401017023451041173083461010814?
 
 ## Kilder
 Formatet på data er fra Jacob Kjers indlæg på dette link:
