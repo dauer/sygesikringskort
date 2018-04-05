@@ -10,27 +10,27 @@ Der kræves en 2-spor læser som f.eks. denne fra [DanBit](http://www.danbit.dk/
 
 ### Spor 1
 
-|Beskrivelse| antal tegn |
+|Beskrivelse| Antal tegn |
 |:----------|-----------:|
 |'%' tegn markerer start på data spor | 1 |
-|Sikredes navn (efternavn og fornavn adskilt af en '^')| 34 |
+|Sikredes navn (efternavn og fornavn(e) adskilt af en '^')| 34 |
 |Sikredes adresse | 34 |
-|Sikredes bopælskommune [BBR](http://bbr.dk/kommunekode/0/30) | 3 |
+|Sikredes bopælskommune ([BBR](http://bbr.dk/kommunekode/0/30)) | 3 |
 |Sikredes postnummer | 4 |
 |'?' tegn markerer afslutning af spor | 1 |
 
 ### Spor 2
 
-|Beskrivelse| antal tegn |
+|Beskrivelse| Antal tegn |
 |:----------|-----------:|
 |':' tegn markerer start på data spor 2 | 1 |
 |Korttype | 1 |
-|Nationalitetskode [Wikipedia](https://da.wikipedia.org/wiki/ISO_3166-1) | 3 |
+|Nationalitetskode ([Wikipedia](https://da.wikipedia.org/wiki/ISO_3166-1) )| 3 |
 |Anvendelsesområde | 1 |
 |Kortudsteder | 3 |
 |Personnummer | 10 |
 |Sikringsgruppe |1 |
-|Lægens ydernummer [MedCom](https://www.medcom.dk/opslag/koder-tabeller-ydere/yderelokationsnumre/laegepraksis-i-danmark) | 6 |
+|Lægens ydernummer ([MedCom](https://www.medcom.dk/opslag/koder-tabeller-ydere/yderelokationsnumre/laegepraksis-i-danmark) )| 6 |
 |Regionsnummer | 3 |
 |Kommunenummer | 3 |
 |Gyldig fra | 6 |
