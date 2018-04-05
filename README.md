@@ -25,7 +25,7 @@ Der kræves en 2-spor læser som f.eks. denne fra [DanBit](http://www.danbit.dk/
 |:----------|-----------:|
 |':' tegn markerer start på data spor 2 | 1 |
 |Korttype | 1 |
-|Nationalitetskode [Wikipadia](https://da.wikipedia.org/wiki/ISO_3166-1) | 3 |
+|Nationalitetskode [Wikipedia](https://da.wikipedia.org/wiki/ISO_3166-1) | 3 |
 |Anvendelsesområde | 1 |
 |Kortudsteder | 3 |
 |Personnummer | 10 |
@@ -44,4 +44,5 @@ Her ses et eksempel på en streng som den kunne se ud:
 
 ## Kilder
 Formatet på data er fra Jacob Kjers indlæg på dette link:
+
 http://dk.teknik.elektronik.narkive.com/1ppaM6u0/laesning-og-overforelse-af-data-fra-sygesikringsbevis  
