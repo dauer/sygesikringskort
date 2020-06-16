@@ -1,4 +1,5 @@
-import dk.workbench.Sygesikringskort
+package dk.workbench
+
 import spock.lang.*
 
 class SygesikringskortSpec extends Specification {
@@ -26,9 +27,18 @@ class SygesikringskortSpec extends Specification {
         fields.date        == "010814"
     }
 
-    def "Test ugyldigt input: for kort streng"() {
+    def "Test ugyldigt input - for kort streng"() {
         when:
         String track = /%DOE^JOHN                           ]L\KKE ALLE 7 3                   4615000?;/
+        Sygesikringskort.parse(track)
+
+        then:
+        thrown AssertionError
+    }
+
+    def "Test ugyldigt input - for lang streng"() {
+        when:
+        String track = /%DOE^JOHN JOHNNY JOHNSON                  ]L\KKE ALLE 7 3                   4615000?;9208100401017023451041173083461010814?/
         Sygesikringskort.parse(track)
 
         then:

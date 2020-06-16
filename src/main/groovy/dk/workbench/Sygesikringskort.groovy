@@ -39,7 +39,7 @@ class Sygesikringskort {
                 ascii : ['#', '@', '[', '\\', ']', '^', '_', '`', '{', '|', '}', '~'],
                 da    : ['#', 'Ä', 'Æ', 'Ø', 'Å', 'Ü', '_', 'ä', 'æ', 'ø', 'å', 'ü', null]
         ]
-        def tr = { x -> table['ascii'].findIndexOf { it == x }}
+        def tr = { x -> table['ascii'].findIndexOf { it == x } }
         str.each {
             out += table[enc][tr(it)] ?: it
         }
