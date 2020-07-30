@@ -15,7 +15,7 @@ Der kræves en 2-spor læser som f.eks. denne fra [DanBit](http://www.danbit.dk/
 |'%' tegn markerer start på data spor | 1 |
 |Sikredes navn (efternavn og fornavn(e) adskilt af en '^')| 34 |
 |Sikredes adresse | 34 |
-|Sikredes bopælskommune ([BBR](http://bbr.dk/kommunekode/0/30)) | 3 |
+|Sikredes bopælskommune ([BBR](https://teknik.bbr.dk/kodelister/0/1/0/Kommunekode)) | 3 |
 |Sikredes postnummer | 4 |
 |'?' tegn markerer afslutning af spor | 1 |
 
