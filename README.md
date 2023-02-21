@@ -45,4 +45,4 @@ Her ses et eksempel på en streng som den kunne se ud:
 ## Kilder
 Formatet på data er fra Jacob Kjers indlæg på dette link:
 
-http://dk.teknik.elektronik.narkive.com/1ppaM6u0/laesning-og-overforelse-af-data-fra-sygesikringsbevis  
+http://dk.teknik.elektronik.narkive.com/1ppaM6u0/laesning-og-overforelse-af-data-fra-sygesikringsbevis

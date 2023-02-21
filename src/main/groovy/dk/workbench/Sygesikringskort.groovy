@@ -1,8 +1,11 @@
 package dk.workbench
 
+import groovy.transform.CompileStatic
+
+@CompileStatic
 class Sygesikringskort {
 
-    static Map parse(String str) {
+    static Map parse(final String str) {
         assert str.length() == 116
 
         def names = str[1..34].trim().tokenize('^')
