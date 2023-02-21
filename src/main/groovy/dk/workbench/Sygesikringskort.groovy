@@ -2,14 +2,19 @@ package dk.workbench
 
 import groovy.transform.CompileStatic
 
+/**
+ * En Groovy klasse til indlæsning af data fra sygesikringskort som de læses med magnetkortlæser.
+ * @author Thomas Rasmussen
+ */
+@SuppressWarnings(['SpaceAroundMapEntryColon', 'UnnecessaryReturnKeyword'])
 @CompileStatic
 class Sygesikringskort {
 
     static Map parse(final String str) {
         assert str.length() == 116
 
-        def names = str[1..34].trim().tokenize('^')
-        def fields = [
+        List<String> names = str[1..34].trim().tokenize('^')
+        Map<String, String> fields = [
             // Track 1
             firstname    : translate(names[1]),
             lastname     : translate(names[0]),
@@ -30,22 +35,24 @@ class Sygesikringskort {
             // https://da.wikipedia.org/wiki/ISO_3166-2:DK
             region       : str[103..105].trim(),
             municipal2   : str[106..108].trim(),
-            date         : str[109..114].trim()
+            date         : str[109..114].trim(),
         ]
+
         return fields
     }
 
     static String translate(String str, String enc = 'da') {
         String out = ''
         // https://en.wikipedia.org/wiki/National_Replacement_Character_Set
-        def table = [
+        Map<String, List<String>> table = [
                 ascii : ['#', '@', '[', '\\', ']', '^', '_', '`', '{', '|', '}', '~'],
                 da    : ['#', 'Ä', 'Æ', 'Ø', 'Å', 'Ü', '_', 'ä', 'æ', 'ø', 'å', 'ü', null]
         ]
-        def tr = { x -> table['ascii'].findIndexOf { it == x } }
-        str.each {
-            out += table[enc][tr(it)] ?: it
+        Closure<Integer> tr = { x -> table['ascii'].findIndexOf { String c -> c == x } }
+        str.each { String s ->
+            out += table[enc][tr(s)] ?: s
         }
+
         return out
     }
 

@@ -1,33 +1,42 @@
 package dk.workbench
 
-import spock.lang.*
+import groovy.transform.CompileDynamic
+import spock.lang.Specification
 
+/**
+ *  Test af klasse til indlæsning af data fra sygesikringskort som de læses med magnetkortlæser.
+ * @author Thomas Rasmussen
+ */
+@CompileDynamic
+@SuppressWarnings(['UnnecessaryBooleanExpression', 'JUnitTestMethodWithoutAssert', 'MethodName', 'LineLength'])
 class SygesikringskortSpec extends Specification {
 
-    def "Test gyldigt input"() {
+    void "Test gyldigt input"() {
         when:
         String tracks = /%DOE^JOHN JOHNNY                   ]L\KKE ALLE 7 3                   4615000?;9208100401017023451041173083461010814?/
-        def fields = Sygesikringskort.parse(tracks)
+        Map<String, String> fields = Sygesikringskort.parse(tracks)
 
         then:
-        fields.firstname   == "JOHN JOHNNY"
-        fields.lastname    == "DOE"
-        fields.address     == "ÅLØKKE ALLE 7 3"
-        fields.municipal   == "461"
-        fields.postalcode  == "5000"
-        fields.cardtype    == "9"
-        fields.nationality == "208"
-        fields.application == "1"
-        fields.issuer      == "004"
-        fields.cpr         == "0101702345"
-        fields.group       == "1"
-        fields.doctor      == "041173"
-        fields.region      == "083"
-        fields.municipal2  == "461"
-        fields.date        == "010814"
+        with(fields) {
+            firstname == 'JOHN JOHNNY'
+            lastname == 'DOE'
+            address == 'ÅLØKKE ALLE 7 3'
+            municipal == '461'
+            postalcode == '5000'
+            cardtype == '9'
+            nationality == '208'
+            application == '1'
+            issuer == '004'
+            cpr == '0101702345'
+            group == '1'
+            doctor == '041173'
+            region == '083'
+            municipal2 == '461'
+            date == '010814'
+        }
     }
 
-    def "Test ugyldigt input - for kort streng"() {
+    void "Test ugyldigt input - for kort streng"() {
         when:
         String track = /%DOE^JOHN                           ]L\KKE ALLE 7 3                   4615000?;/
         Sygesikringskort.parse(track)
@@ -36,7 +45,7 @@ class SygesikringskortSpec extends Specification {
         thrown AssertionError
     }
 
-    def "Test ugyldigt input - for lang streng"() {
+    void "Test ugyldigt input - for lang streng"() {
         when:
         String track = /%DOE^JOHN JOHNNY JOHNSON                  ]L\KKE ALLE 7 3                   4615000?;9208100401017023451041173083461010814?/
         Sygesikringskort.parse(track)
@@ -45,9 +54,9 @@ class SygesikringskortSpec extends Specification {
         thrown AssertionError
     }
 
-    def "Test dansk NRCS tabel"() {
+    void "test dansk NRCS tabel"() {
         when:
-        def oversat = Sygesikringskort.translate(tegn)
+        String oversat = Sygesikringskort.translate(tegn)
 
         then:
         oversat == forventet
@@ -68,7 +77,7 @@ class SygesikringskortSpec extends Specification {
         '~'  || 'ü'
     }
 
-    def "Test at kun specialtegn oversættes"() {
+    void "Test at kun specialtegn oversættes"() {
         when:
         String oversat = Sygesikringskort.translate(tegn)
 
