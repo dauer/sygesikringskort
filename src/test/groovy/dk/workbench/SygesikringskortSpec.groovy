@@ -54,7 +54,7 @@ class SygesikringskortSpec extends Specification {
         thrown AssertionError
     }
 
-    void "test dansk NRCS tabel"() {
+    void "Test dansk NRCS tabel"() {
         when:
         String oversat = Sygesikringskort.translate(tegn)
 

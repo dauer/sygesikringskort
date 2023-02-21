@@ -7,9 +7,6 @@ plugins {
 version = "1.0"
 description = "Sygesikringskort"
 
-sourceCompatibility = JavaVersion.VERSION_1_8
-targetCompatibility = JavaVersion.VERSION_1_8
-
 repositories {
   mavenLocal()
   mavenCentral()
@@ -17,12 +14,17 @@ repositories {
 
 dependencies {
   // mandatory dependencies for using Spock
-  implementation "org.codehaus.groovy:groovy-all:2.5.21"
-  testImplementation "org.spockframework:spock-core:1.3-groovy-2.5"
+  implementation "org.codehaus.groovy:groovy-all:3.0.15"
+  testImplementation "org.spockframework:spock-core:2.3-groovy-3.0"
 }
+
+test {
+  useJUnitPlatform()
+}
+
 codenarc {
   configFile = file("${project.projectDir}/config/CodeNarcRules.groovy")
-  toolVersion = "2.2.0"
+  toolVersion = "3.2.0"
   ignoreFailures = false
 }
 

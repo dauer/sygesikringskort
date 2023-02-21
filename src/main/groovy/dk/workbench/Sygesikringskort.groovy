@@ -46,7 +46,7 @@ class Sygesikringskort {
         // https://en.wikipedia.org/wiki/National_Replacement_Character_Set
         Map<String, List<String>> table = [
                 ascii : ['#', '@', '[', '\\', ']', '^', '_', '`', '{', '|', '}', '~'],
-                da    : ['#', 'Ä', 'Æ', 'Ø', 'Å', 'Ü', '_', 'ä', 'æ', 'ø', 'å', 'ü', null]
+                da    : ['#', 'Ä', 'Æ', 'Ø', 'Å', 'Ü', '_', 'ä', 'æ', 'ø', 'å', 'ü', null],
         ]
         Closure<Integer> tr = { x -> table['ascii'].findIndexOf { String c -> c == x } }
         str.each { String s ->
