@@ -4,7 +4,8 @@ import groovy.transform.CompileDynamic
 import spock.lang.Specification
 
 /**
- *  Test af klasse til indlæsning af data fra sygesikringskort som de læses med magnetkortlæser.
+ * Test af klasse til indlæsning af data fra sygesikringskort som de læses med magnetkortlæser.
+ *
  * @author Thomas Rasmussen
  */
 @CompileDynamic
@@ -52,43 +53,6 @@ class SygesikringskortSpec extends Specification {
 
         then:
         thrown AssertionError
-    }
-
-    void "Test dansk NRCS tabel"() {
-        when:
-        String oversat = Sygesikringskort.translate(tegn)
-
-        then:
-        oversat == forventet
-
-        where:
-        tegn || forventet
-        '#'  || '#'
-        '@'  || 'Ä'
-        '['  || 'Æ'
-        '\\' || 'Ø'
-        ']'  || 'Å'
-        '^'  || 'Ü'
-        '_'  || '_'
-        '`'  || 'ä'
-        '{'  || 'æ'
-        '|'  || 'ø'
-        '}'  || 'å'
-        '~'  || 'ü'
-    }
-
-    void "Test at kun specialtegn oversættes"() {
-        when:
-        String oversat = Sygesikringskort.translate(tegn)
-
-        then:
-        oversat == forventet
-
-        where:
-        tegn                         || forventet
-        'abcdefghijklmnopqrstuvxyz'  || 'abcdefghijklmnopqrstuvxyz'
-        'ABCDEFGHIJKLMNOPQRSTUVXYZ'  || 'ABCDEFGHIJKLMNOPQRSTUVXYZ'
-        '0123456789'                 || '0123456789'
     }
 
 }

@@ -1,28 +1,36 @@
 package dk.workbench
 
+import dk.workbench.nrcs.Translate
 import groovy.transform.CompileStatic
 
 /**
- * En Groovy klasse til indlæsning af data fra sygesikringskort som de læses med magnetkortlæser.
+ * En Groovy klasse til at indlæse og parse data fra danske sygesikringskort, som de læses med en magnetkortlæser
+ *
  * @author Thomas Rasmussen
  */
-@SuppressWarnings(['SpaceAroundMapEntryColon', 'UnnecessaryReturnKeyword'])
+@SuppressWarnings(['SpaceAroundMapEntryColon'])
 @CompileStatic
-class Sygesikringskort {
+class Sygesikringskort implements Translate {
 
+    /**
+     * Den primære metode der parser data fra sygesikringskortet
+     *
+     * @param str streng indeholdende data læst fra sygesikringskort, består af 116 tegn
+     * @return map indeholdende de enkelte felter indeholdt i strengen fra kortet
+     */
     static Map parse(final String str) {
         assert str.length() == 116
 
         List<String> names = str[1..34].trim().tokenize('^')
         Map<String, String> fields = [
-            // Track 1
+            // --- Track 1
             firstname    : translate(names[1]),
             lastname     : translate(names[0]),
             address      : translate(str[35..68].trim()),
-            // http://bbr.dk/kommunekode/0/30
+            // https://teknik.bbr.dk/kodelister/0/1/0/Kommunekode
             municipal    : str[69..71].trim(),
             postalcode   : str[72..75].trim(),
-            // Track 2
+            // --- Track 2
             cardtype     : str[78],
             // https://da.wikipedia.org/wiki/ISO_3166-1
             nationality  : str[79..81].trim(),
@@ -39,21 +47,6 @@ class Sygesikringskort {
         ]
 
         return fields
-    }
-
-    static String translate(String str, String enc = 'da') {
-        String out = ''
-        // https://en.wikipedia.org/wiki/National_Replacement_Character_Set
-        Map<String, List<String>> table = [
-                ascii : ['#', '@', '[', '\\', ']', '^', '_', '`', '{', '|', '}', '~'],
-                da    : ['#', 'Ä', 'Æ', 'Ø', 'Å', 'Ü', '_', 'ä', 'æ', 'ø', 'å', 'ü', null],
-        ]
-        Closure<Integer> tr = { x -> table['ascii'].findIndexOf { String c -> c == x } }
-        str.each { String s ->
-            out += table[enc][tr(s)] ?: s
-        }
-
-        return out
     }
 
 }
