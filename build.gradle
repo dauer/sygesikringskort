@@ -2,6 +2,7 @@
 plugins {
   id 'codenarc'
   id 'groovy'
+  id 'jacoco'
 }
 
 version = "1.0"
@@ -34,4 +35,12 @@ codenarcMain {
 
 codenarcTest {
   compilationClasspath = codenarcMain.compilationClasspath + sourceSets.test.compileClasspath + sourceSets.test.output
+}
+
+jacoco {
+  toolVersion = "0.8.10"
+}
+
+jacocoTestReport {
+  dependsOn(test)
 }
