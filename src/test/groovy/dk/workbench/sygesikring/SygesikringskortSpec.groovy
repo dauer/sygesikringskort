@@ -1,4 +1,4 @@
-package dk.workbench
+package dk.workbench.sygesikring
 
 import groovy.transform.CompileDynamic
 import spock.lang.Specification

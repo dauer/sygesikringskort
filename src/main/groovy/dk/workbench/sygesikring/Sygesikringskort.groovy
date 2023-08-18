@@ -1,6 +1,6 @@
-package dk.workbench
+package dk.workbench.sygesikring
 
-import dk.workbench.nrcs.Translate
+import dk.workbench.sygesikring.nrcs.Translate
 import groovy.transform.CompileStatic
 
 /**

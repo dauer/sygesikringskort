@@ -1,4 +1,4 @@
-package dk.workbench.nrcs
+package dk.workbench.sygesikring.nrcs
 
 import groovy.transform.CompileDynamic
 import spock.lang.Specification
