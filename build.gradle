@@ -24,7 +24,7 @@ test {
 
 codenarc {
   configFile = file("${project.projectDir}/config/CodeNarcRules.groovy")
-  toolVersion = "3.2.0"
+  toolVersion = "3.3.0"
   ignoreFailures = false
 }
 
