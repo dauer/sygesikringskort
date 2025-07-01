@@ -14,9 +14,9 @@ repositories {
 }
 
 dependencies {
-  // mandatory dependencies for using Spock
-  implementation "org.codehaus.groovy:groovy-all:3.0.15"
-  testImplementation "org.spockframework:spock-core:2.3-groovy-3.0"
+  implementation "org.apache.groovy:groovy-all:4.0.27"
+
+  testImplementation "org.spockframework:spock-core:2.4-M6-groovy-4.0"
 }
 
 test {
