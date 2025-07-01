@@ -4,21 +4,20 @@ import groovy.transform.CompileStatic
 
 /**
  * En Groovy klasse til at oversætte imellem national replacement character sets (NRCS)
- *
+ * @see <a href="https://en.wikipedia.org/wiki/National_Replacement_Character_Set">Wikipedia: NRCS</a>
  * @author Thomas Rasmussen
  */
-@SuppressWarnings(['SpaceAroundMapEntryColon'])
 @CompileStatic
 trait Translate {
 
     /**
      * Denne metode oversætter fra ascii for DEC VT220 terminal til nationale tegnsæt
-     * https://en.wikipedia.org/wiki/National_Replacement_Character_Set
      *
      * @param str streng der skal oversættes
      * @param enc hvilket format skal der oversættes til, understøtter kun dansk
      * @return streng oversat fra ascii til det valgte nationale tegnsæt
      */
+    @SuppressWarnings('SpaceAroundMapEntryColon')
     static String translate(String str, String enc = 'da') {
         String out = ''
         Map<String, List<String>> table = [
