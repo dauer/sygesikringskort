@@ -44,3 +44,5 @@ jacoco {
 jacocoTestReport {
   dependsOn(test)
 }
+
+check.finalizedBy(jacocoTestReport)

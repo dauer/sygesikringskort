@@ -15,25 +15,25 @@ class SygesikringskortSpec extends Specification {
     void "Test gyldigt input"() {
         when:
         String tracks = /%DOE^JOHN JOHNNY                   ]L\KKE ALLE 7 3                   4615000?;9208100401017023451041173083461010814?/
-        Map<String, String> fields = Sygesikringskort.parse(tracks)
+        SikredesOplysninger oplysninger = Sygesikringskort.parse(tracks)
 
         then:
-        with(fields) {
-            firstname == 'JOHN JOHNNY'
-            lastname == 'DOE'
-            address == 'ÅLØKKE ALLE 7 3'
-            municipal == '461'
-            postalcode == '5000'
-            cardtype == '9'
-            nationality == '208'
-            application == '1'
-            issuer == '004'
-            cpr == '0101702345'
-            group == '1'
-            doctor == '041173'
-            region == '083'
-            municipal2 == '461'
-            date == '010814'
+        with(oplysninger) {
+            firstname()     == 'JOHN JOHNNY'
+            lastname()      == 'DOE'
+            address()       == 'ÅLØKKE ALLE 7 3'
+            municipal()     == '461'
+            postalcode()    == '5000'
+            cardtype()      == '9'
+            nationality()   == '208'
+            application()   == '1'
+            issuer()        == '004'
+            cpr()           == '0101702345'
+            group()         == '1'
+            doctor()        == '041173'
+            region()        == '083'
+            municipal2()    == '461'
+            date()          == '010814'
         }
     }
 
