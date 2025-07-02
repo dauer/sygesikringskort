@@ -9,7 +9,7 @@ import spock.lang.Specification
  * @author Thomas Rasmussen
  */
 @CompileDynamic
-@SuppressWarnings(['UnnecessaryBooleanExpression', 'JUnitTestMethodWithoutAssert', 'MethodName', 'LineLength'])
+@SuppressWarnings(['UnnecessaryBooleanExpression', 'MethodName', 'LineLength'])
 class SygesikringskortSpec extends Specification {
 
     void "Test gyldigt input"() {

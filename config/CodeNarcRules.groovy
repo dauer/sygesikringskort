@@ -74,6 +74,8 @@ ruleset {
     JavadocMissingExceptionDescription
     JavadocMissingParamDescription
     JavadocMissingThrowsDescription
+    SpaceAfterCommentDelimiter
+    SpaceBeforeCommentDelimiter
 
     // rulesets/concurrency.xml
     BusyWait
@@ -81,6 +83,7 @@ ruleset {
     InconsistentPropertyLocking
     InconsistentPropertySynchronization
     NestedSynchronization
+    NoScriptBindings
     StaticCalendarField
     StaticConnection
     StaticDateFormatField
@@ -307,6 +310,15 @@ ruleset {
     JdbcResultSetReference
     JdbcStatementReference
 
+    // rulesets/jenkins.xml
+    ClassNotSerializable
+    ClosureInGString
+    CpsCallFromNonCpsMethod
+    ExpressionInCpsMethodNotSerializable
+    ForbiddenCallInCpsMethod
+    ObjectOverrideOnlyNonCpsMethods
+    ParameterOrReturnTypeNotSerializable
+
     // rulesets/junit.xml
     ChainedTest
     CoupledTestCase
@@ -325,6 +337,7 @@ ruleset {
     JUnitUnnecessaryTearDown
     JUnitUnnecessaryThrowsException
     SpockIgnoreRestUsed
+    SpockMissingAssert
     UnnecessaryFail
     UseAssertEqualsInsteadOfAssertTrue
     UseAssertFalseInsteadOfNegation
@@ -374,6 +387,7 @@ ruleset {
 
     // rulesets/serialization.xml
     EnumCustomSerializationIgnored
+    NonSerializableFieldInSerializableClass
     SerialPersistentFields
     SerialVersionUID
     SerializableClassMustDefineSerialVersionUID
@@ -444,6 +458,5 @@ ruleset {
     UnusedPrivateMethod
     UnusedPrivateMethodParameter
     UnusedVariable
-
 
 }
