@@ -1,48 +1,48 @@
 
 plugins {
-  id 'codenarc'
-  id 'groovy'
-  id 'jacoco'
+    id 'codenarc'
+    id 'groovy'
+    id 'jacoco'
 }
 
 version = "1.0"
 description = "Sygesikringskort"
 
 repositories {
-  mavenLocal()
-  mavenCentral()
+    mavenLocal()
+    mavenCentral()
 }
 
 dependencies {
-  implementation "org.apache.groovy:groovy-all:4.0.27"
+    implementation "org.apache.groovy:groovy-all:4.0.27"
 
-  testImplementation "org.spockframework:spock-core:2.4-M6-groovy-4.0"
+    testImplementation "org.spockframework:spock-core:2.4-M6-groovy-4.0"
 }
 
 test {
-  useJUnitPlatform()
+    useJUnitPlatform()
 }
 
 codenarc {
-  configFile = file("${project.projectDir}/config/CodeNarcRules.groovy")
-  toolVersion = "3.6.0-groovy-4.0"
-  ignoreFailures = false
+    configFile = file("${project.projectDir}/config/CodeNarcRules.groovy")
+    toolVersion = "3.6.0-groovy-4.0"
+    ignoreFailures = false
 }
 
 codenarcMain {
-  compilationClasspath = sourceSets.main.compileClasspath + sourceSets.main.output
+    compilationClasspath = sourceSets.main.compileClasspath + sourceSets.main.output
 }
 
 codenarcTest {
-  compilationClasspath = codenarcMain.compilationClasspath + sourceSets.test.compileClasspath + sourceSets.test.output
+    compilationClasspath = codenarcMain.compilationClasspath + sourceSets.test.compileClasspath + sourceSets.test.output
 }
 
 jacoco {
-  toolVersion = "0.8.13"
+    toolVersion = "0.8.13"
 }
 
 jacocoTestReport {
-  dependsOn(test)
+    dependsOn(test)
 }
 
 check.finalizedBy(jacocoTestReport)
