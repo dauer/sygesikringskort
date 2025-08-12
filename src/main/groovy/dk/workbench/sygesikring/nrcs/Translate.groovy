@@ -18,7 +18,7 @@ trait Translate {
      * @return streng oversat fra ascii til det valgte nationale tegnsæt
      */
     @SuppressWarnings('SpaceAroundMapEntryColon')
-    static String translate(String str, String enc = 'da') {
+    static String translate(final String str, final String enc = 'da') {
         String out = ''
         Map<String, List<String>> table = [
                 ascii : ['#', '@', '[', '\\', ']', '^', '_', '`', '{', '|', '}', '~'],
